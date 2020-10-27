@@ -206,7 +206,7 @@ O avaliador automático não necessariamente avalia seu projeto na ordem em que 
   }
   ```
 
-- O campo `name` deverá ser uma string e deve ter no mínimo 3 caracteres. Ele é obrigatório.
+- O campo `name` deverá ter no mínimo 3 caracteres. Ele é obrigatório.
 
   - Caso o campo não seja passado ou esteja vazio retorne um código de `status 400`, com o seguinte corpo:
 
@@ -406,21 +406,13 @@ O avaliador automático não necessariamente avalia seu projeto na ordem em que 
   }
   ```
 
-- O campo `name` deverá ser uma string e deve ter no mínimo 3 caracteres. Ele é obrigatório.
+- O campo `name` deverá ter no mínimo 3 caracteres. Ele é obrigatório.
 
   - Caso o campo não seja passado ou esteja vazio retorne um código de `status 400`, com o seguinte corpo:
 
     ```js
     {
       "message": "O campo 'name' é obrigatório"
-    }
-    ```
-
-  - Caso o nome não seja uma string retorne um código de `status 400`, com o seguinte corpo:
-
-    ```js
-    {
-      "message": "O 'name' deve ser uma string"
     }
     ```
 
@@ -542,7 +534,7 @@ O avaliador automático não necessariamente avalia seu projeto na ordem em que 
     }
     ```
 
-### 7 - Crie o endpoint GET `/search?q=searchTerm`
+### 7 - Crie o endpoint GET `/crush/search?q=searchTerm`
 
 #### Os seguintes pontos serão avaliados:
 
