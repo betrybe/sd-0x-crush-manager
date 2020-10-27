@@ -175,7 +175,7 @@ O avaliador automático não necessariamente avalia seu projeto na ordem em que 
 
     ```js
     {
-      "message": "O campo 'senha' é obrigatório"
+      "message": "O campo 'password' é obrigatório"
     }
     ```
 
@@ -183,7 +183,7 @@ O avaliador automático não necessariamente avalia seu projeto na ordem em que 
 
     ```js
     {
-      "message": "A 'senha' ter pelo menos 6 caracteres"
+      "message": "O 'password' ter pelo menos 6 caracteres"
     }
     ```
 
@@ -220,7 +220,7 @@ O avaliador automático não necessariamente avalia seu projeto na ordem em que 
 
     ```js
     {
-      "message": "O 'name' ter pelo menos 3 caracteres"
+      "message": "O 'name' deve ter pelo menos 3 caracteres"
     }
     ```
 
