@@ -157,7 +157,7 @@ O avaliador automático não necessariamente avalia seu projeto na ordem em que 
 
     ```js
     {
-      "message": "O campo 'email' é obrigatório"
+      "message": "O campo \"email\" é obrigatório"
     }
     ```
 
@@ -165,7 +165,7 @@ O avaliador automático não necessariamente avalia seu projeto na ordem em que 
 
     ```js
     {
-      "message": "O 'email' deve ter o formato 'email@email.com'"
+      "message": "O \"email\" deve ter o formato \"email@email.com\""
     }
     ```
 
@@ -175,7 +175,7 @@ O avaliador automático não necessariamente avalia seu projeto na ordem em que 
 
     ```js
     {
-      "message": "O campo 'password' é obrigatório"
+      "message": "O campo \"password\" é obrigatório"
     }
     ```
 
@@ -183,7 +183,7 @@ O avaliador automático não necessariamente avalia seu projeto na ordem em que 
 
     ```js
     {
-      "message": "O 'password' ter pelo menos 6 caracteres"
+      "message": "O \"password\" ter pelo menos 6 caracteres"
     }
     ```
 
@@ -200,7 +200,7 @@ O avaliador automático não necessariamente avalia seu projeto na ordem em que 
     "name": "Keanu Reeves",
     "age": 56,
     "date": {
-      "datedAt": '22/10/2019',
+      "datedAt": "22/10/2019",
       "rate": 5
     }
   }
@@ -212,7 +212,7 @@ O avaliador automático não necessariamente avalia seu projeto na ordem em que 
 
     ```js
     {
-      "message": "O campo 'name' é obrigatório"
+      "message": "O campo \"name\" é obrigatório"
     }
     ```
 
@@ -220,7 +220,7 @@ O avaliador automático não necessariamente avalia seu projeto na ordem em que 
 
     ```js
     {
-      "message": "O 'name' deve ter pelo menos 3 caracteres"
+      "message": "O \"name\" deve ter pelo menos 3 caracteres"
     }
     ```
 
@@ -230,7 +230,7 @@ O avaliador automático não necessariamente avalia seu projeto na ordem em que 
 
     ```js
     {
-      "message": "O campo 'age' é obrigatório"
+      "message": "O campo \"age\" é obrigatório"
     }
     ```
 
@@ -250,7 +250,7 @@ O avaliador automático não necessariamente avalia seu projeto na ordem em que 
 
     ```js
     {
-      "message": "O campo 'datedAt' deve ter o formato 'dd/mm/aaaa'"
+      "message": "O campo \"datedAt\" deve ter o formato \"dd/mm/aaaa\""
     }
     ```
 
@@ -260,7 +260,7 @@ O avaliador automático não necessariamente avalia seu projeto na ordem em que 
 
       ```js
       {
-        "message": "O campo 'rate' deve ser um inteiro de 1 à 5"
+        "message": "O campo \"rate\" deve ser um inteiro de 1 à 5"
       }
       ```
 
@@ -270,7 +270,7 @@ O avaliador automático não necessariamente avalia seu projeto na ordem em que 
 
       ```js
       {
-        "message": "O campo 'date' é obrigatório e 'datedAt' e 'rate' não podem ser vazios"
+        "message": "O campo \"date\" é obrigatório e \"datedAt\" e \"rate\" não podem ser vazios"
       }
       ```
 
@@ -300,7 +300,7 @@ O avaliador automático não necessariamente avalia seu projeto na ordem em que 
     "name": "Keanu Reeves",
     "age": 56,
     "date": {
-      "datedAt": '22/10/2019',
+      "datedAt": "22/10/2019",
       "rate": 5
     }
   }
@@ -316,24 +316,26 @@ O avaliador automático não necessariamente avalia seu projeto na ordem em que 
   [
     {
       id: 1,
-      name: 'Keanu Reeves',
+      name: "Keanu Reeves",
       age: 56,
       date: {
-        datedAt: '22/10/2019',
+        datedAt: "22/10/2019",
         rate: 5,
       },
     },
     {
       id: 2,
-      name: 'Madonna',
+      name: "Madonna",
       age: 62,
       date: {
-        datedAt: '10/09/2019',
+        datedAt: "10/09/2019",
         rate: 5,
       },
     },
   ];
   ```
+
+- Caso não exista nenhum crush cadastrado o endpoint deve retornar um array vazio e o `status 200`.
 
 - A requisição deve ter o token de autenticação nos headers.
 
@@ -360,12 +362,20 @@ O avaliador automático não necessariamente avalia seu projeto na ordem em que 
   ```js
   {
     id: 1,
-    name: 'Keanu Reeves',
+    name: "Keanu Reeves",
     age: 56,
     date: {
-      datedAt: '22/10/2019',
+      datedAt: "22/10/2019",
       rate: 5,
     },
+  }
+  ```
+
+- Caso não seja encontrado um crush baseado no id da rota, o endpoint deve retornar o `status 404` com o seguinte corpo:
+
+  ```js
+  {
+    "message": "Crush não encontrado"
   }
   ```
 
@@ -400,7 +410,7 @@ O avaliador automático não necessariamente avalia seu projeto na ordem em que 
     "name": "Keanu Reeves",
     "age": 56,
     "date": {
-      "datedAt": '22/10/2019',
+      "datedAt": "22/10/2019",
       "rate": 5
     }
   }
@@ -412,7 +422,7 @@ O avaliador automático não necessariamente avalia seu projeto na ordem em que 
 
     ```js
     {
-      "message": "O campo 'name' é obrigatório"
+      "message": "O campo \"name\" é obrigatório"
     }
     ```
 
@@ -420,7 +430,7 @@ O avaliador automático não necessariamente avalia seu projeto na ordem em que 
 
     ```js
     {
-      "message": "O 'name' ter pelo menos 3 caracteres"
+      "message": "O \"name\" ter pelo menos 3 caracteres"
     }
     ```
 
@@ -430,7 +440,7 @@ O avaliador automático não necessariamente avalia seu projeto na ordem em que 
 
     ```js
     {
-      "message": "O campo 'age' é obrigatório"
+      "message": "O campo \"age\" é obrigatório"
     }
     ```
 
@@ -450,7 +460,7 @@ O avaliador automático não necessariamente avalia seu projeto na ordem em que 
 
     ```js
     {
-      "message": "O campo 'datedAt' deve ter o formato 'dd/mm/aaaa'"
+      "message": "O campo \"datedAt\" deve ter o formato \"dd/mm/aaaa\""
     }
     ```
 
@@ -460,7 +470,7 @@ O avaliador automático não necessariamente avalia seu projeto na ordem em que 
 
       ```js
       {
-        "message": "O campo 'rate' deve ser um inteiro de 1 à 5"
+        "message": "O campo \"rate\" deve ser um inteiro de 1 à 5"
       }
       ```
 
@@ -470,7 +480,7 @@ O avaliador automático não necessariamente avalia seu projeto na ordem em que 
 
       ```js
       {
-        "message": "O campo 'date' é obrigatório e 'datedAt' e 'rate' não podem ser vazios"
+        "message": "O campo \"date\" é obrigatório e \"datedAt\" e \"rate\" não podem ser vazios"
       }
       ```
 
@@ -500,7 +510,7 @@ O avaliador automático não necessariamente avalia seu projeto na ordem em que 
     "name": "Keanu Reeves",
     "age": 56,
     "date": {
-      "datedAt": '22/10/2019',
+      "datedAt": "22/10/2019",
       "rate": 4
     }
   }
@@ -548,10 +558,10 @@ O avaliador automático não necessariamente avalia seu projeto na ordem em que 
   [
     {
       id: 1,
-      name: 'Keanu Reeves',
+      name: "Keanu Reeves",
       age: 56,
       date: {
-        datedAt: '22/10/2019',
+        datedAt: "22/10/2019",
         rate: 5,
       },
     }
