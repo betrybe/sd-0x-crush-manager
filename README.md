@@ -284,7 +284,7 @@ O avaliador automático não necessariamente avalia seu projeto na ordem em que 
     }
     ```
 
-  - Caro o token seja inválido retorne um código de `status 401`, com o seguinte corpo:
+  - Caso o token seja inválido retorne um código de `status 401`, com o seguinte corpo:
 
     ```js
     {
@@ -347,7 +347,7 @@ O avaliador automático não necessariamente avalia seu projeto na ordem em que 
     }
     ```
 
-  - Caro o token seja inválido retorne um código de `status 401`, com o seguinte corpo:
+  - Caso o token seja inválido retorne um código de `status 401`, com o seguinte corpo:
 
     ```js
     {
@@ -389,7 +389,7 @@ O avaliador automático não necessariamente avalia seu projeto na ordem em que 
     }
     ```
 
-  - Caro o token seja inválido retorne um código de `status 401`, com o seguinte corpo:
+  - Caso o token seja inválido retorne um código de `status 401`, com o seguinte corpo:
 
     ```js
     {
@@ -494,7 +494,7 @@ O avaliador automático não necessariamente avalia seu projeto na ordem em que 
     }
     ```
 
-  - Caro o token seja inválido retorne um código de `status 401`, com o seguinte corpo:
+  - Caso o token seja inválido retorne um código de `status 401`, com o seguinte corpo:
 
     ```js
     {
@@ -536,7 +536,7 @@ O avaliador automático não necessariamente avalia seu projeto na ordem em que 
     }
     ```
 
-  - Caro o token seja inválido retorne um código de `status 401`, com o seguinte corpo:
+  - Caso o token seja inválido retorne um código de `status 401`, com o seguinte corpo:
 
     ```js
     {
@@ -582,7 +582,7 @@ O avaliador automático não necessariamente avalia seu projeto na ordem em que 
     }
     ```
 
-  - Caro o token seja inválido retorne um código de `status 401`, com o seguinte corpo:
+  - Caso o token seja inválido retorne um código de `status 401`, com o seguinte corpo:
 
     ```js
     {
