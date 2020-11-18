@@ -568,7 +568,7 @@ O avaliador automático não necessariamente avalia seu projeto na ordem em que 
   ];
   ```
 
-- Caso a busca seja vazia o endpoint devera retornar um array com todos os crushs cadastrados, assim como no endpoint GET `/crush`, com um `status 200`.
+- Caso `searchTerm` não seja informado ou esteja vazio, o endpoint devera retornar um array com todos os crushs cadastrados, assim como no endpoint GET `/crush`, com um `status 200`.
 
 - Caso nenhum crush satisfaça a busca, o endpoint deve retornar o `status 200` e um array vazio.
 
