@@ -206,45 +206,48 @@ Isso está configurado para o avaliador funcionar.
 
 - O endpoint deve retornar um array com todos os crushs cadastrados. Devendo retornar o `status 200`, com o seguinte corpo:
 
-  ```js
-  [
-    {
-      id: 1,
-      name: "Keanu Reeves",
-      age: 56,
-      date: {
-        datedAt: "22/10/2019",
-        rate: 5,
-      },
-    },
-    {
-      id: 2,
-      name: "Madonna",
-      age: 62,
-      date: {
-        datedAt: "10/09/2019",
-        rate: 5,
-      },
-    },
-  ];
-  ```
+```js
+[
+  {
+    "name": "Madonna",
+    "age": 62,
+    "id": 1,
+    "date": { "datedAt": "23/10/2020", "rate": 5 }
+  },
+  {
+    "name": "Cyndi Lauper",
+    "age": 67,
+    "id": 2,
+    "date": { "datedAt": "23/10/2020", "rate": 5 }
+  },
+  {
+    "name": "Kendrick Lamar",
+    "age": 33,
+    "id": 3,
+    "date": { "datedAt": "23/10/2020", "rate": 5 }
+  },
+  {
+    "name": "Tom Holland",
+    "age": 24,
+    "id": 4,
+    "date": { "datedAt": "23/10/2020", "rate": 5 }
+  }
+]
+```
 
 - Caso não exista nenhum crush cadastrado o endpoint deve retornar um array vazio e o `status 200`.
 
 
 ### 2 - Crie o endpoint GET `/crush/:id`
 
-- O endpoint deve retornar um crush baseado no id da rota. Devendo retornar o `status 200`, com o seguinte corpo:
+- O endpoint deve retornar um crush baseado no id da rota. Devendo retornar o `status 200` ao fazer uma requisição `/crush/1`, com o seguinte corpo:
 
   ```js
   {
-    id: 1,
-    name: "Keanu Reeves",
-    age: 56,
-    date: {
-      datedAt: "22/10/2019",
-      rate: 5,
-    },
+    "name": "Madonna",
+    "age": 62,
+    "id": 1,
+    "date": { "datedAt": "23/10/2020", "rate": 5 }
   }
   ```
 
@@ -433,97 +436,6 @@ Isso está configurado para o avaliador funcionar.
     }
   }
   ```
-
-### 3 - Crie o endpoint GET `/crush`
-
-#### Os seguintes pontos serão avaliados:
-
-- O endpoint deve retornar um array com todos os crushs cadastrados. Devendo retornar o `status 200`, com o seguinte corpo:
-
-  ```js
-  [
-    {
-      id: 1,
-      name: "Keanu Reeves",
-      age: 56,
-      date: {
-        datedAt: "22/10/2019",
-        rate: 5,
-      },
-    },
-    {
-      id: 2,
-      name: "Madonna",
-      age: 62,
-      date: {
-        datedAt: "10/09/2019",
-        rate: 5,
-      },
-    },
-  ];
-  ```
-
-- Caso não exista nenhum crush cadastrado o endpoint deve retornar um array vazio e o `status 200`.
-
-- A requisição deve ter o token de autenticação nos headers.
-
-  - Caso o token não seja encontrado retorne um código de `status 401`, com o seguinte corpo:
-
-    ```js
-    {
-      "message": "Token não encontrado"
-    }
-    ```
-
-  - Caso o token seja inválido retorne um código de `status 401`, com o seguinte corpo:
-
-    ```js
-    {
-      "message": "Token inválido"
-    }
-    ```
-
-### 4 - Crie o endpoint GET `/crush/:id`
-
-- O endpoint deve retornar um crush baseado no id da rota. Devendo retornar o `status 200`, com o seguinte corpo:
-
-  ```js
-  {
-    id: 1,
-    name: "Keanu Reeves",
-    age: 56,
-    date: {
-      datedAt: "22/10/2019",
-      rate: 5,
-    },
-  }
-  ```
-
-- Caso não seja encontrado um crush baseado no id da rota, o endpoint deve retornar o `status 404` com o seguinte corpo:
-
-  ```js
-  {
-    "message": "Crush não encontrado"
-  }
-  ```
-
-- A requisição deve ter o token de autenticação nos headers.
-
-  - Caso o token não seja encontrado retorne um código de `status 401`, com o seguinte corpo:
-
-    ```js
-    {
-      "message": "Token não encontrado"
-    }
-    ```
-
-  - Caso o token seja inválido retorne um código de `status 401`, com o seguinte corpo:
-
-    ```js
-    {
-      "message": "Token inválido"
-    }
-    ```
 
 ### 5 - Crie o endpoint PUT `/crush/:id`
 
