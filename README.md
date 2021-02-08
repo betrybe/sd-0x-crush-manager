@@ -185,7 +185,18 @@ Você pode também instalar o plugin do `ESLint` no `VSCode`, bastar ir em exten
 
 1. Com exceção do requisito 3, todos os outros requisitos deverão ser feitos utilizando o módulo `fs`.
 
-2. O arquivo `crush.json` será utilizado como base para fazer as requisições da API.
+2. O arquivo `crush.json` será utilizado como base para fazer as requisições da API. As operações de leitura e escrita dos requisitos deve ser feito nesse arquivo usando os métodos da biblioteca `fs`.
+
+3. Há um arquivo `index.js` no repositório. Não remova, nele, o seguinte trecho de código:
+
+```javascript
+app.get('/', (_request, response) => {
+  response.status(SUCCESS).send();
+});
+```
+
+Isso está configurado para o avaliador funcionar.
+
 
 ---
 
