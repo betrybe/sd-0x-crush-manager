@@ -49,6 +49,7 @@ describe('5 - Crie o endpoint PUT /crush/:id', () => {
           })
           .expect('status', 201)
           .then((responseCreate) => {
+            // aqui deveria ter algo para verificar que o registro foi atualizado no arquivo `crush.json`
             const { body } = responseCreate;
             resultCrush = JSON.parse(body);
           });

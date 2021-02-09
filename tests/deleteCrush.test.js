@@ -49,6 +49,7 @@ describe('6 - Crie o endpoint DELETE /crush/:id', () => {
           })
           .expect('status', 201)
           .then((responseCreate) => {
+            // aqui deveria ter algo para verificar que o registro foi removido no arquivo `crush.json`
             const { body } = responseCreate;
             resultCrush = JSON.parse(body);
           });

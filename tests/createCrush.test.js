@@ -52,6 +52,8 @@ describe('2 - Crie o endpoint POST /crush', () => {
           })
           .expect('status', 201)
           .then((responseCreate) => {
+            // aqui deveria ter algo para verificar que o registro foi inserido no arquivo `crush.json`
+
             const { json } = responseCreate;
             expect(json).toEqual(postCrushMock);
           });
