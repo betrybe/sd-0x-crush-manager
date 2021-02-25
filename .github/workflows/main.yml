@@ -13,6 +13,7 @@ jobs:
         uses: betrybe/eslint-linter-action@v2.1
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
+
   evaluator_job:
     name: Evaluator Job
     runs-on: ubuntu-18.04
