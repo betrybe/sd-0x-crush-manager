@@ -4,7 +4,7 @@ Ao iniciar este projeto, você concorda com as diretrizes do Código de Ética e
 
 ---
 
-# Boas vindas ao repositório do Crush Manager!
+# Boas vindas ao repositório do Talker Manager!
 
 Você já usa o GitHub diariamente para desenvolver os exercícios, certo? Agora, para desenvolver os projetos, você deverá seguir as instruções a seguir. Fique atento a cada passo, e se tiver qualquer dúvida, nos envie por Slack! #vqv 🚀
 
@@ -27,13 +27,13 @@ Aqui você vai encontrar os detalhes de como estruturar o desenvolvimento do seu
 - [Requisitos do projeto](#requisitos-do-projeto)
   - [Linter](#linter)
   - [Lista de requisitos](#lista-de-requisitos)
-    - [1 - Crie o endpoint GET /crush](#1---crie-o-endpoint-get-crush)
-    - [2 - Crie o endpoint GET /crush/:id](#2---crie-o-endpoint-get-crushid)
+    - [1 - Crie o endpoint GET /talker](#1---crie-o-endpoint-get-talker)
+    - [2 - Crie o endpoint GET /talker/:id](#2---crie-o-endpoint-get-talkerid)
     - [3 - Crie o endpoint POST /login](#3---crie-o-endpoint-post-login)
-    - [4 - Crie o endpoint POST /crush](#4---crie-o-endpoint-post-crush)
-    - [5 - Crie o endpoint PUT /crush/:id](#5---crie-o-endpoint-put-crushid)
-    - [6 - Crie o endpoint DELETE /crush/:id](#6---crie-o-endpoint-delete-crushid)
-    - [7 - Crie o endpoint GET /crush/search?q=searchTerm](#7---crie-o-endpoint-get-crushsearchqsearchterm)
+    - [4 - Crie o endpoint POST /talker](#4---crie-o-endpoint-post-talker)
+    - [5 - Crie o endpoint PUT /talker/:id](#5---crie-o-endpoint-put-talkerid)
+    - [6 - Crie o endpoint DELETE /talker/:id](#6---crie-o-endpoint-delete-talkerid)
+    - [7 - Crie o endpoint GET /talker/search?q=searchTerm](#7---crie-o-endpoint-get-talkersearchqsearchterm)
 - [Avisos Finais](#avisos-finais)
 
 ---
@@ -65,7 +65,7 @@ Lembre-se que você pode consultar nosso conteúdo sobre [Git & GitHub](https://
 
 ## O que deverá ser desenvolvido
 
-Você vai desenvolver uma API de um CRUD (**C**reate, **R**ead, **U**pdate e **D**elete) de crushs. Você vai desenvolver alguns endpoints que irão ler e escrever em um arquivo, isso utilizando o módulo `fs`.
+Você vai desenvolver uma API de um CRUD (**C**reate, **R**ead, **U**pdate e **D**elete) de palestrantes. Você vai desenvolver alguns endpoints que irão ler e escrever em um arquivo, isso utilizando o módulo `fs`.
 
 ## Desenvolvimento
 
@@ -81,9 +81,9 @@ O projeto tem até a seguinte data: `dd/mm/yyyy - 14:00h`. Para ser entregue a a
 
 1. Clone o repositório
 
-- `git clone https://github.com/betrybe/sd-0x-project-crush-manager.git`.
+- `git clone https://github.com/betrybe/sd-0x-project-talker-manager.git`.
 - Entre na pasta do repositório que você acabou de clonar:
-  - `cd sd-0x-crush-manager`
+  - `cd sd-0x-talker-manager`
 
 2. Instale as dependências [**Caso existam**]
 
@@ -97,7 +97,7 @@ O projeto tem até a seguinte data: `dd/mm/yyyy - 14:00h`. Para ser entregue a a
   - Exemplo: `git checkout master`
 - Agora crie uma branch à qual você vai submeter os `commits` do seu projeto
   - Você deve criar uma branch no seguinte formato: `nome-de-usuario-nome-do-projeto`
-  - Exemplo: `git checkout -b joaozinho-sd-0x-crush-manager`
+  - Exemplo: `git checkout -b joaozinho-sd-0x-talker-manager`
 
 4. Adicione as mudanças ao _stage_ do Git e faça um `commit`
 
@@ -114,17 +114,17 @@ O projeto tem até a seguinte data: `dd/mm/yyyy - 14:00h`. Para ser entregue a a
 
 5. Adicione a sua branch com o novo `commit` ao repositório remoto
 
-- Usando o exemplo anterior: `git push -u origin joaozinho-sd-0x-crush-manager`
+- Usando o exemplo anterior: `git push -u origin joaozinho-sd-0x-talker-manager`
 
 6. Crie um novo `Pull Request` _(PR)_
 
-- Vá até a página de _Pull Requests_ do [repositório no GitHub](https://github.com/tryber/sd-0x-project-crush-manager/pulls)
+- Vá até a página de _Pull Requests_ do [repositório no GitHub](https://github.com/tryber/sd-0x-project-talker-manager/pulls)
 - Clique no botão verde _"New pull request"_
 - Clique na caixa de seleção _"Compare"_ e escolha a sua branch **com atenção**
 - Clique no botão verde _"Create pull request"_
 - Adicione uma descrição para o _Pull Request_ e clique no botão verde _"Create pull request"_
 - **Não se preocupe em preencher mais nada por enquanto!**
-- Volte até a [página de _Pull Requests_ do repositório](https://github.com/tryber/sd-0x-project-crush-manager/pulls) e confira que o seu _Pull Request_ está criado
+- Volte até a [página de _Pull Requests_ do repositório](https://github.com/tryber/sd-0x-project-talker-manager/pulls) e confira que o seu _Pull Request_ está criado
 
 ## Durante o desenvolvimento
 
@@ -185,82 +185,80 @@ Você pode também instalar o plugin do `ESLint` no `VSCode`, bastar ir em exten
 
 1. Com exceção do requisito 3, todos os outros requisitos deverão ser feitos utilizando o módulo `fs`.
 
-2. O arquivo `crush.json` será utilizado como base para fazer as requisições da API. As operações de leitura e escrita dos requisitos deve ser feito nesse arquivo usando os métodos da biblioteca `fs`.
+2. O arquivo `talker.json` será utilizado como base para fazer as requisições da API. As operações de leitura e escrita dos requisitos devem ser feitas nesse arquivo usando os métodos da biblioteca `fs`.
 
 3. Há um arquivo `index.js` no repositório. Não remova, nele, o seguinte trecho de código:
-
-```javascript
-app.get('/', (_request, response) => {
-  response.status(SUCCESS).send();
-});
-```
-
-Isso está configurado para o avaliador funcionar.
+  ```javascript
+  app.get('/', (_request, response) => {
+    response.status(HTTP_OK_STATUS).send();
+  });
+  ```
+  Isso está configurado para o avaliador funcionar.
 
 4. Ao utilizar de testes locais com `npm run test`, o servidor deverá ser iniciado com `npm run debug` para evitar possíveis erros.
 
-5. Caso os testes falhem seu arquivo `crush.json` não será restaurado, para isso utilize `npm run restore`.
+5. Caso os testes falhem seu arquivo `talker.json` não será restaurado, para isso utilize `npm run restore`.
 
 6. Ao se deparar com o erro de que a porta já está em uso: `EADDRINUSE: address already in use 0.0.0.0:3000`, execute em seu terminal `killall node` isso finaliza todas as execuções do node.
 
 ---
 
-### 1 - Crie o endpoint GET `/crush`
+### 1 - Crie o endpoint GET `/talker`
 
 #### Os seguintes pontos serão avaliados:
 
-- O endpoint deve retornar um array com todos os crushs cadastrados. Devendo retornar o `status 200`, com o seguinte corpo:
+- O endpoint deve retornar um array com todos as pessoas palestrantes cadastradas. Devendo retornar o `status 200`, com o seguinte corpo:
 
-```js
+```json
 [
   {
     "name": "Madonna",
     "age": 62,
     "id": 1,
-    "date": { "datedAt": "23/10/2020", "rate": 5 }
+    "talk": { "watchedAt": "23/10/2020", "rate": 5 }
   },
   {
     "name": "Cyndi Lauper",
     "age": 67,
     "id": 2,
-    "date": { "datedAt": "23/10/2020", "rate": 5 }
+    "talk": { "watchedAt": "23/10/2020", "rate": 5 }
   },
   {
     "name": "Kendrick Lamar",
     "age": 33,
     "id": 3,
-    "date": { "datedAt": "23/10/2020", "rate": 5 }
+    "talk": { "watchedAt": "23/10/2020", "rate": 5 }
   },
   {
     "name": "Tom Holland",
     "age": 24,
     "id": 4,
-    "date": { "datedAt": "23/10/2020", "rate": 5 }
+    "talk": { "watchedAt": "23/10/2020", "rate": 5 }
   }
 ]
 ```
 
-- Caso não exista nenhum crush cadastrado o endpoint deve retornar um array vazio e o `status 200`.
+- Caso não exista nenhuma pessoa palestrante cadastrada o endpoint deve retornar um array vazio e o `status 200`.
 
 
-### 2 - Crie o endpoint GET `/crush/:id`
+### 2 - Crie o endpoint GET `/talker/:id`
 
-- O endpoint deve retornar um crush baseado no id da rota. Devendo retornar o `status 200` ao fazer uma requisição `/crush/1`, com o seguinte corpo:
+- O endpoint deve retornar uma pessoa palestrante com base no id da rota. Devendo retornar o `status 200` ao fazer uma requisição `/talker/1`, com o seguinte corpo:
 
-  ```js
+  ```json
   {
     "name": "Madonna",
     "age": 62,
     "id": 1,
-    "date": { "datedAt": "23/10/2020", "rate": 5 }
+    "talk": { "watchedAt": "23/10/2020", "rate": 5 }
   }
   ```
 
-- Caso não seja encontrado um crush baseado no id da rota, o endpoint deve retornar o `status 404` com o seguinte corpo:
+- Caso não seja encontrado uma pessoa palestrante com base no id da rota, o endpoint deve retornar o `status 404` com o seguinte corpo:
 
-  ```js
+  ```json
   {
-    "message": "Crush não encontrado"
+    "message": "Palestrante não encontrado"
   }
   ```
 
@@ -272,7 +270,7 @@ Isso está configurado para o avaliador funcionar.
 
   - O endpoint deverá o retornar o token gerado, da seguinte forma:
 
-  ```js
+  ```json
   {
     "token": "7mqaVRXJSp886CGr"
   }
@@ -280,7 +278,7 @@ Isso está configurado para o avaliador funcionar.
 
 - O corpo da requisição deverá ter o seguinte formato:
 
-  ```js
+  ```json
   {
     "email": "email@email.com",
     "password": 123456
@@ -291,7 +289,7 @@ Isso está configurado para o avaliador funcionar.
 
   - Caso o campo não seja passado ou esteja vazio retorne um código de `status 400`, com o seguinte corpo:
 
-    ```js
+    ```json
     {
       "message": "O campo \"email\" é obrigatório"
     }
@@ -299,7 +297,7 @@ Isso está configurado para o avaliador funcionar.
 
   - Caso o email passado não seja um email válido retorne um código de `status 400`, com o seguinte corpo:
 
-    ```js
+    ```json
     {
       "message": "O \"email\" deve ter o formato \"email@email.com\""
     }
@@ -309,7 +307,7 @@ Isso está configurado para o avaliador funcionar.
 
   - Caso o campo não seja passado ou esteja vazio retorne um código de `status 400`, com o seguinte corpo:
 
-    ```js
+    ```json
     {
       "message": "O campo \"password\" é obrigatório"
     }
@@ -317,26 +315,26 @@ Isso está configurado para o avaliador funcionar.
 
   - Caso a senha não tenha pelo menos 6 caracteres retorne um código de `status 400`, com o seguinte corpo:
 
-    ```js
+    ```json
     {
       "message": "O \"password\" ter pelo menos 6 caracteres"
     }
     ```
 
-### 4 - Crie o endpoint POST `/crush`
+### 4 - Crie o endpoint POST `/talker`
 
 #### Os seguintes pontos serão avaliados:
 
-- O endpoint deve ser capaz de adicionar um novo crush ao seu arquivo;
+- O endpoint deve ser capaz de adicionar um nova pessoa palestrante ao seu arquivo;
 
 - O corpo da requisição deverá ter o seguinte formato:
 
-  ```js
+  ```json
   {
     "name": "Keanu Reeves",
     "age": 56,
-    "date": {
-      "datedAt": "22/10/2019",
+    "talk": {
+      "watchedAt": "22/10/2019",
       "rate": 5
     }
   }
@@ -346,7 +344,7 @@ Isso está configurado para o avaliador funcionar.
 
   - Caso o token não seja encontrado retorne um código de `status 401`, com o seguinte corpo:
 
-    ```js
+    ```json
     {
       "message": "Token não encontrado"
     }
@@ -354,7 +352,7 @@ Isso está configurado para o avaliador funcionar.
 
   - Caso o token seja inválido retorne um código de `status 401`, com o seguinte corpo:
 
-    ```js
+    ```json
     {
       "message": "Token inválido"
     }
@@ -364,7 +362,7 @@ Isso está configurado para o avaliador funcionar.
 
   - Caso o campo não seja passado ou esteja vazio retorne um código de `status 400`, com o seguinte corpo:
 
-    ```js
+    ```json
     {
       "message": "O campo \"name\" é obrigatório"
     }
@@ -372,7 +370,7 @@ Isso está configurado para o avaliador funcionar.
 
   - Caso o nome não tenha pelo menos 3 caracteres retorne um código de `status 400`, com o seguinte corpo:
 
-    ```js
+    ```json
     {
       "message": "O \"name\" deve ter pelo menos 3 caracteres"
     }
@@ -382,29 +380,29 @@ Isso está configurado para o avaliador funcionar.
 
   - Caso o campo não seja passado ou esteja vazio retorne um código de `status 400`, com o seguinte corpo:
 
-    ```js
+    ```json
     {
       "message": "O campo \"age\" é obrigatório"
     }
     ```
 
-  - Caso o crush não tenha pelo menos 18 anos retorne `status 400`, com o seguinte corpo:
+  - Caso a pessoa palestrante não tenha pelo menos 18 anos retorne `status 400`, com o seguinte corpo:
 
-    ```js
+    ```json
     {
-      "message": "O crush deve ser maior de idade"
+      "message": "A pessoa palestrante deve ser maior de idade"
     }
     ```
 
-- O campo `date` deverá ser um objeto com as seguintes chaves:
+- O campo `talk` deverá ser um objeto com as seguintes chaves:
 
-  - A chave `datedAt` deve ser uma data no formato `dd/mm/aaaa`.
+  - A chave `watchedAt` deve ser uma data no formato `dd/mm/aaaa`.
 
     - Caso a data não respeito o formato `dd/mm/aaaa` retorne `status 400`, com o seguinte corpo:
 
-    ```js
+    ```json
     {
-      "message": "O campo \"datedAt\" deve ter o formato \"dd/mm/aaaa\""
+      "message": "O campo \"watchedAt\" deve ter o formato \"dd/mm/aaaa\""
     }
     ```
 
@@ -412,50 +410,50 @@ Isso está configurado para o avaliador funcionar.
 
     - Caso a nota não seja um inteiro de 1 à 5 retorne `status 400`, com o seguinte corpo:
 
-      ```js
+      ```json
       {
         "message": "O campo \"rate\" deve ser um inteiro de 1 à 5"
       }
       ```
 
-  - O campo `date` é obrigatório e nenhuma das chaves citadas anteriormente podem ser vazias.
+  - O campo `talk` é obrigatório e nenhuma das chaves citadas anteriormente podem ser vazias.
 
     - Caso o campo não seja informa, esteja vazio ou então alguma de suas chaves não tenham sido informadas retorne `status 400`, com o seguinte corpo:
 
-      ```js
+      ```json
       {
-        "message": "O campo \"date\" é obrigatório e \"datedAt\" e \"rate\" não podem ser vazios"
+        "message": "O campo \"talk\" é obrigatório e \"watchedAt\" e \"rate\" não podem ser vazios"
       }
       ```
 
-- O endpoint deve retornar o `status 201` e o crush que foi cadastrado, dá seguinte forma:
+- O endpoint deve retornar o `status 201` e a pessoa palestrante que foi cadastrada, dá seguinte forma:
 
-  ```js
+  ```json
   {
     "id": 1,
     "name": "Keanu Reeves",
     "age": 56,
-    "date": {
-      "datedAt": "22/10/2019",
+    "talk": {
+      "watchedAt": "22/10/2019",
       "rate": 5
     }
   }
   ```
 
-### 5 - Crie o endpoint PUT `/crush/:id`
+### 5 - Crie o endpoint PUT `/talker/:id`
 
 #### Os seguintes pontos serão avaliados:
 
-- O endpoint deve ser capaz de editar um crush baseado no id da rota, sem alterar o id registrado.
+- O endpoint deve ser capaz de editar uma pessoa palestrante com base no id da rota, sem alterar o id registrado.
 
 - O corpo da requisição deverá ter o seguinte formato:
 
-  ```js
+  ```json
   {
     "name": "Keanu Reeves",
     "age": 56,
-    "date": {
-      "datedAt": "22/10/2019",
+    "talk": {
+      "watchedAt": "22/10/2019",
       "rate": 5
     }
   }
@@ -465,7 +463,7 @@ Isso está configurado para o avaliador funcionar.
 
   - Caso o token não seja encontrado retorne um código de `status 401`, com o seguinte corpo:
 
-    ```js
+    ```json
     {
       "message": "Token não encontrado"
     }
@@ -473,7 +471,7 @@ Isso está configurado para o avaliador funcionar.
 
   - Caso o token seja inválido retorne um código de `status 401`, com o seguinte corpo:
 
-    ```js
+    ```json
     {
       "message": "Token inválido"
     }
@@ -483,7 +481,7 @@ Isso está configurado para o avaliador funcionar.
 
   - Caso o campo não seja passado ou esteja vazio retorne um código de `status 400`, com o seguinte corpo:
 
-    ```js
+    ```json
     {
       "message": "O campo \"name\" é obrigatório"
     }
@@ -491,7 +489,7 @@ Isso está configurado para o avaliador funcionar.
 
   - Caso o nome não tenha pelo menos 3 caracteres retorne um código de `status 400`, com o seguinte corpo:
 
-    ```js
+    ```json
     {
       "message": "O \"name\" ter pelo menos 3 caracteres"
     }
@@ -501,29 +499,29 @@ Isso está configurado para o avaliador funcionar.
 
   - Caso o campo não seja passado ou esteja vazio retorne um código de `status 400`, com o seguinte corpo:
 
-    ```js
+    ```json
     {
       "message": "O campo \"age\" é obrigatório"
     }
     ```
 
-  - Caso o crush não tenha pelo menos 18 anos retorne `status 400`, com o seguinte corpo:
+  - Caso a pessoa palestrante não tenha pelo menos 18 anos retorne `status 400`, com o seguinte corpo:
 
-    ```js
+    ```json
     {
-      "message": "O crush deve ser maior de idade"
+      "message": "A pessoa palestrante deve ser maior de idade"
     }
     ```
 
-- O campo `date` deverá ser um objeto com as seguintes chaves:
+- O campo `talk` deverá ser um objeto com as seguintes chaves:
 
-  - A chave `datedAt` deve ser uma data no formato `dd/mm/aaaa`.
+  - A chave `watchedAt` deve ser uma data no formato `dd/mm/aaaa`.
 
     - Caso a data não respeito o formato `dd/mm/aaaa` retorne `status 400`, com o seguinte corpo:
 
-    ```js
+    ```json
     {
-      "message": "O campo \"datedAt\" deve ter o formato \"dd/mm/aaaa\""
+      "message": "O campo \"watchedAt\" deve ter o formato \"dd/mm/aaaa\""
     }
     ```
 
@@ -531,37 +529,37 @@ Isso está configurado para o avaliador funcionar.
 
     - Caso a nota não seja um inteiro de 1 à 5 retorne `status 400`, com o seguinte corpo:
 
-      ```js
+      ```json
       {
         "message": "O campo \"rate\" deve ser um inteiro de 1 à 5"
       }
       ```
 
-  - O campo `date` é obrigatório e nenhuma das chaves citadas anteriormente podem ser vazias.
+  - O campo `talk` é obrigatório e nenhuma das chaves citadas anteriormente podem ser vazias.
 
     - Caso o campo não seja informa, esteja vazio ou então alguma de suas chaves não tenham sido informadas retorne `status 400`, com o seguinte corpo:
 
-      ```js
+      ```json
       {
-        "message": "O campo \"date\" é obrigatório e \"datedAt\" e \"rate\" não podem ser vazios"
+        "message": "O campo \"talk\" é obrigatório e \"watchedAt\" e \"rate\" não podem ser vazios"
       }
       ```
 
-- O endpoint deve retornar o `status 200` e o crush que foi editado, dá seguinte forma:
+- O endpoint deve retornar o `status 200` e a pessoa palestrante que foi editada, dá seguinte forma:
 
-  ```js
+  ```json
   {
     "id": 1,
     "name": "Keanu Reeves",
     "age": 56,
-    "date": {
-      "datedAt": "22/10/2019",
+    "talk": {
+      "watchedAt": "22/10/2019",
       "rate": 4
     }
   }
   ```
 
-### 6 - Crie o endpoint DELETE `/crush/:id`
+### 6 - Crie o endpoint DELETE `/talker/:id`
 
 #### Os seguintes pontos serão avaliados:
 
@@ -569,7 +567,7 @@ Isso está configurado para o avaliador funcionar.
 
   - Caso o token não seja encontrado retorne um código de `status 401`, com o seguinte corpo:
 
-    ```js
+    ```json
     {
       "message": "Token não encontrado"
     }
@@ -577,37 +575,37 @@ Isso está configurado para o avaliador funcionar.
 
   - Caso o token seja inválido retorne um código de `status 401`, com o seguinte corpo:
 
-    ```js
+    ```json
     {
       "message": "Token inválido"
     }
     ```
 
-- O endpoint deve deletar um crush baseado no id da rota. Devendo retornar o `status 200`, com o seguinte corpo:
+- O endpoint deve deletar uma pessoa palestrante com base no id da rota. Devendo retornar o `status 200`, com o seguinte corpo:
 
-  ```js
-  { "message": "Crush deletado com sucesso" }
+  ```json
+  { "message": "Palestrante deletado com sucesso" }
   ```
 
 
-### 7 - Crie o endpoint GET `/crush/search?q=searchTerm`
+### 7 - Crie o endpoint GET `/talker/search?q=searchTerm`
 
 #### Os seguintes pontos serão avaliados:
 
-- O endpoint deve retornar um array de crushs que contenham em seu nome o termo pesquisado no queryParam da URL. Devendo retornar o `status 200`, com o seguinte corpo:
+- O endpoint deve retornar um array de palestrantes que contenham em seu nome o termo pesquisado no queryParam da URL. Devendo retornar o `status 200`, com o seguinte corpo:
 
   ```
   /search?q=Ke
   ```
 
-  ```js
+  ```json
   [
     {
       id: 1,
       name: "Keanu Reeves",
       age: 56,
-      date: {
-        datedAt: "22/10/2019",
+      talk: {
+        watchedAt: "22/10/2019",
         rate: 5,
       },
     }
@@ -618,7 +616,7 @@ Isso está configurado para o avaliador funcionar.
 
   - Caso o token não seja encontrado retorne um código de `status 401`, com o seguinte corpo:
 
-    ```js
+    ```json
     {
       "message": "Token não encontrado"
     }
@@ -626,15 +624,15 @@ Isso está configurado para o avaliador funcionar.
 
   - Caso o token seja inválido retorne um código de `status 401`, com o seguinte corpo:
 
-    ```js
+    ```json
     {
       "message": "Token inválido"
     }
     ```
 
-- Caso `searchTerm` não seja informado ou esteja vazio, o endpoint devera retornar um array com todos os crushs cadastrados, assim como no endpoint GET `/crush`, com um `status 200`.
+- Caso `searchTerm` não seja informado ou esteja vazio, o endpoint devera retornar um array com todos as pessoas palestrantes cadastradas, assim como no endpoint GET `/talker`, com um `status 200`.
 
-- Caso nenhum crush satisfaça a busca, o endpoint deve retornar o `status 200` e um array vazio.
+- Caso nenhuma pessoa palestrante satisfaça a busca, o endpoint deve retornar o `status 200` e um array vazio.
 
 **Dica** é importante ter atenção se essa rota não entra em conflito com as outras, já que a ordem das rotas faz diferença na interpretação da aplicação
 

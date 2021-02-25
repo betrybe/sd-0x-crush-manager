@@ -1,21 +1,21 @@
 const frisby = require('frisby');
 const fs = require('fs');
 const path = require('path');
-const crushsSeed = require('./seed.json');
+const talkersSeed = require('./seed.json');
 
 const url = 'http://localhost:3000';
 
-describe('7 - Crie o endpoint GET /crush/search?q=searchTerm', () => {
+describe('7 - Crie o endpoint GET /talker/search?q=searchTerm', () => {
   beforeEach(() => {
-    const crushSeed = fs.readFileSync(
+    const talkerSeed = fs.readFileSync(
       path.join(__dirname, 'seed.json'),
-      'utf8',
+      'utf8'
     );
 
     fs.writeFileSync(
-      path.join(__dirname, '..', 'crush.json'),
-      crushSeed,
-      'utf8',
+      path.join(__dirname, '..', 'talker.json'),
+      talkerSeed,
+      'utf8'
     );
   });
 
@@ -38,11 +38,11 @@ describe('7 - Crie o endpoint GET /crush/search?q=searchTerm', () => {
               },
             },
           })
-          .post(`${url}/crush`, {
+          .post(`${url}/talker`, {
             name: 'Miley Cyrus',
             age: 27,
-            date: {
-              datedAt: '25/09/2020',
+            talk: {
+              watchedAt: '25/09/2020',
               rate: 4,
             },
           })
@@ -67,7 +67,7 @@ describe('7 - Crie o endpoint GET /crush/search?q=searchTerm', () => {
               },
             },
           })
-          .get(`${url}/crush/search?q=M`)
+          .get(`${url}/talker/search?q=M`)
           .expect('status', 200)
           .then((responseGet) => {
             const { json } = responseGet;
@@ -77,23 +77,23 @@ describe('7 - Crie o endpoint GET /crush/search?q=searchTerm', () => {
                   name: 'Madonna',
                   age: 62,
                   id: 1,
-                  date: { datedAt: '23/10/2020', rate: 5 },
+                  talk: { watchedAt: '23/10/2020', rate: 5 },
                 }),
                 expect.objectContaining({
                   name: 'Miley Cyrus',
                   age: 27,
-                  date: {
-                    datedAt: '25/09/2020',
+                  talk: {
+                    watchedAt: '25/09/2020',
                     rate: 4,
                   },
                 }),
-              ]),
+              ])
             );
           });
       });
   });
 
-  it('Será validade que o endpoit retonar um array com todos os crushs caso o param seja vazio', async () => {
+  it('Será validade que o endpoit retonar um array com todos as pessoas palestrantes caso o param seja vazio', async () => {
     await frisby
       .post(`${url}/login`, {
         body: {
@@ -113,17 +113,17 @@ describe('7 - Crie o endpoint GET /crush/search?q=searchTerm', () => {
               },
             },
           })
-          .get(`${url}/crush`)
+          .get(`${url}/talker`)
           .expect('status', 200)
           .then((responseGet) => {
             const { json } = responseGet;
-            expect(json).toEqual(crushsSeed);
+            expect(json).toEqual(talkersSeed);
           });
       });
   });
 
   it('Será validado que o endpoint retorna um array vazio caso o param não seja passado', async () => {
-    fs.writeFileSync(path.join(__dirname, '..', 'crush.json'), '[]', 'utf8');
+    fs.writeFileSync(path.join(__dirname, '..', 'talker.json'), '[]', 'utf8');
 
     await frisby
       .post(`${url}/login`, {
@@ -144,7 +144,7 @@ describe('7 - Crie o endpoint GET /crush/search?q=searchTerm', () => {
               },
             },
           })
-          .get(`${url}/crush`)
+          .get(`${url}/talker`)
           .expect('status', 200)
           .then((responseGet) => {
             const { json } = responseGet;
@@ -164,12 +164,13 @@ describe('7 - Crie o endpoint GET /crush/search?q=searchTerm', () => {
       .then(() =>
         frisby
           .setup()
-          .get(`${url}/crush/search?q=Z`)
+          .get(`${url}/talker/search?q=Z`)
           .expect('status', 401)
           .then((responseGet) => {
             const { json } = responseGet;
             expect(json.message).toBe('Token não encontrado');
-          }));
+          })
+      );
   });
 
   it('Será validado que não é possível fazer uma busca por termo com token inválido', async () => {
@@ -190,11 +191,12 @@ describe('7 - Crie o endpoint GET /crush/search?q=searchTerm', () => {
               },
             },
           })
-          .get(`${url}/crush/search?=Ma`)
+          .get(`${url}/talker/search?=Ma`)
           .expect('status', 401)
           .then((responseGet) => {
             const { json } = responseGet;
             expect(json.message).toBe('Token inválido');
-          }));
+          })
+      );
   });
 });

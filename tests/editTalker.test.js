@@ -4,22 +4,22 @@ const path = require('path');
 
 const url = 'http://localhost:3000';
 
-describe('5 - Crie o endpoint PUT /crush/:id', () => {
+describe('5 - Crie o endpoint PUT /talker/:id', () => {
   beforeEach(() => {
-    const crushMock = fs.readFileSync(
+    const talkerMock = fs.readFileSync(
       path.join(__dirname, 'seed.json'),
-      'utf8',
+      'utf8'
     );
 
     fs.writeFileSync(
-      path.join(__dirname, '..', 'crush.json'),
-      crushMock,
-      'utf8',
+      path.join(__dirname, '..', 'talker.json'),
+      talkerMock,
+      'utf8'
     );
   });
 
-  it('Será validado que é possível editar um crush com sucesso', async () => {
-    let resultCrush;
+  it('Será validado que é possível editar um talker com sucesso', async () => {
+    let resultTalker;
 
     await frisby
       .post(`${url}/login`, {
@@ -39,18 +39,18 @@ describe('5 - Crie o endpoint PUT /crush/:id', () => {
               },
             },
           })
-          .post(`${url}/crush`, {
+          .post(`${url}/talker`, {
             name: 'Zendaya Maree',
             age: 24,
-            date: {
-              datedAt: '25/09/2020',
+            talk: {
+              watchedAt: '25/09/2020',
               rate: 5,
             },
           })
           .expect('status', 201)
           .then((responseCreate) => {
             const { body } = responseCreate;
-            resultCrush = JSON.parse(body);
+            resultTalker = JSON.parse(body);
           });
       });
 
@@ -72,28 +72,28 @@ describe('5 - Crie o endpoint PUT /crush/:id', () => {
               },
             },
           })
-          .put(`${url}/crush/${resultCrush.id}`, {
+          .put(`${url}/talker/${resultTalker.id}`, {
             name: 'Zendaya',
             age: 25,
-            date: {
-              datedAt: '24/10/2020',
+            talk: {
+              watchedAt: '24/10/2020',
               rate: 4,
             },
           })
           .expect('status', 200)
           .then((responseUpdate) => {
             const { json } = responseUpdate;
-            expect(json.id).toBe(resultCrush.id);
+            expect(json.id).toBe(resultTalker.id);
             expect(json.name).toBe('Zendaya');
             expect(json.age).toBe(25);
-            expect(json.date.datedAt).toBe('24/10/2020');
-            expect(json.date.rate).toBe(4);
+            expect(json.talk.watchedAt).toBe('24/10/2020');
+            expect(json.talk.rate).toBe(4);
           });
       });
   });
 
-  it('Será validado que não é possível editar um crush sem nome', async () => {
-    let resultCrush;
+  it('Será validado que não é possível editar um talker sem nome', async () => {
+    let resultTalker;
 
     await frisby
       .post(`${url}/login`, {
@@ -113,18 +113,18 @@ describe('5 - Crie o endpoint PUT /crush/:id', () => {
               },
             },
           })
-          .post(`${url}/crush`, {
+          .post(`${url}/talker`, {
             name: 'Zendaya Maree',
             age: 24,
-            date: {
-              datedAt: '25/09/2020',
+            talk: {
+              watchedAt: '25/09/2020',
               rate: 5,
             },
           })
           .expect('status', 201)
           .then((responseCreate) => {
             const { body } = responseCreate;
-            resultCrush = JSON.parse(body);
+            resultTalker = JSON.parse(body);
           });
       });
 
@@ -147,10 +147,10 @@ describe('5 - Crie o endpoint PUT /crush/:id', () => {
               },
             },
           })
-          .put(`${url}/crush/${resultCrush.id}`, {
+          .put(`${url}/talker/${resultTalker.id}`, {
             age: 25,
-            date: {
-              datedAt: '24/10/2020',
+            talk: {
+              watchedAt: '24/10/2020',
               rate: 4,
             },
           })
@@ -162,8 +162,8 @@ describe('5 - Crie o endpoint PUT /crush/:id', () => {
       });
   });
 
-  it('Será validado que não é possível editar um crush com nome menor que 3 caracteres', async () => {
-    let resultCrush;
+  it('Será validado que não é possível editar um talker com nome menor que 3 caracteres', async () => {
+    let resultTalker;
 
     await frisby
       .post(`${url}/login`, {
@@ -183,18 +183,18 @@ describe('5 - Crie o endpoint PUT /crush/:id', () => {
               },
             },
           })
-          .post(`${url}/crush`, {
+          .post(`${url}/talker`, {
             name: 'Zendaya Maree',
             age: 24,
-            date: {
-              datedAt: '25/09/2020',
+            talk: {
+              watchedAt: '25/09/2020',
               rate: 5,
             },
           })
           .expect('status', 201)
           .then((responseCreate) => {
             const { body } = responseCreate;
-            resultCrush = JSON.parse(body);
+            resultTalker = JSON.parse(body);
           });
       });
 
@@ -217,11 +217,11 @@ describe('5 - Crie o endpoint PUT /crush/:id', () => {
               },
             },
           })
-          .put(`${url}/crush/${resultCrush.id}`, {
+          .put(`${url}/talker/${resultTalker.id}`, {
             name: 'Ze',
             age: 25,
-            date: {
-              datedAt: '24/10/2020',
+            talk: {
+              watchedAt: '24/10/2020',
               rate: 4,
             },
           })
@@ -229,14 +229,14 @@ describe('5 - Crie o endpoint PUT /crush/:id', () => {
           .then((responseUpdate) => {
             const { json } = responseUpdate;
             expect(json.message).toBe(
-              'O "name" deve ter pelo menos 3 caracteres',
+              'O "name" deve ter pelo menos 3 caracteres'
             );
           });
       });
   });
 
-  it('Será validado que não é possível editar um crush sem idade', async () => {
-    let resultCrush;
+  it('Será validado que não é possível editar um talker sem idade', async () => {
+    let resultTalker;
 
     await frisby
       .post(`${url}/login`, {
@@ -256,18 +256,18 @@ describe('5 - Crie o endpoint PUT /crush/:id', () => {
               },
             },
           })
-          .post(`${url}/crush`, {
+          .post(`${url}/talker`, {
             name: 'Zendaya Maree',
             age: 24,
-            date: {
-              datedAt: '25/09/2020',
+            talk: {
+              watchedAt: '25/09/2020',
               rate: 5,
             },
           })
           .expect('status', 201)
           .then((responseCreate) => {
             const { body } = responseCreate;
-            resultCrush = JSON.parse(body);
+            resultTalker = JSON.parse(body);
           });
       });
 
@@ -290,10 +290,10 @@ describe('5 - Crie o endpoint PUT /crush/:id', () => {
               },
             },
           })
-          .put(`${url}/crush/${resultCrush.id}`, {
+          .put(`${url}/talker/${resultTalker.id}`, {
             name: 'Zendaya',
-            date: {
-              datedAt: '24/10/2020',
+            talk: {
+              watchedAt: '24/10/2020',
               rate: 4,
             },
           })
@@ -305,8 +305,8 @@ describe('5 - Crie o endpoint PUT /crush/:id', () => {
       });
   });
 
-  it('Será validado que não é possível editar um crush com idade menor de 18 anos', async () => {
-    let resultCrush;
+  it('Será validado que não é possível editar um talker com idade menor de 18 anos', async () => {
+    let resultTalker;
 
     await frisby
       .post(`${url}/login`, {
@@ -326,18 +326,18 @@ describe('5 - Crie o endpoint PUT /crush/:id', () => {
               },
             },
           })
-          .post(`${url}/crush`, {
+          .post(`${url}/talker`, {
             name: 'Zendaya Maree',
             age: 24,
-            date: {
-              datedAt: '25/09/2020',
+            talk: {
+              watchedAt: '25/09/2020',
               rate: 5,
             },
           })
           .expect('status', 201)
           .then((responseCreate) => {
             const { body } = responseCreate;
-            resultCrush = JSON.parse(body);
+            resultTalker = JSON.parse(body);
           });
       });
 
@@ -360,24 +360,24 @@ describe('5 - Crie o endpoint PUT /crush/:id', () => {
               },
             },
           })
-          .put(`${url}/crush/${resultCrush.id}`, {
+          .put(`${url}/talker/${resultTalker.id}`, {
             name: 'Zendaya',
             age: 17,
-            date: {
-              datedAt: '24/10/2020',
+            talk: {
+              watchedAt: '24/10/2020',
               rate: 4,
             },
           })
           .expect('status', 400)
           .then((responseUpdate) => {
             const { json } = responseUpdate;
-            expect(json.message).toBe('O crush deve ser maior de idade');
+            expect(json.message).toBe('O talker deve ser maior de idade');
           });
       });
   });
 
-  it('Será validado que não é possível editar um crush sem o campo date', async () => {
-    let resultCrush;
+  it('Será validado que não é possível editar um talker sem o campo talk', async () => {
+    let resultTalker;
 
     await frisby
       .post(`${url}/login`, {
@@ -397,18 +397,18 @@ describe('5 - Crie o endpoint PUT /crush/:id', () => {
               },
             },
           })
-          .post(`${url}/crush`, {
+          .post(`${url}/talker`, {
             name: 'Zendaya Maree',
             age: 24,
-            date: {
-              datedAt: '25/09/2020',
+            talk: {
+              watchedAt: '25/09/2020',
               rate: 5,
             },
           })
           .expect('status', 201)
           .then((responseCreate) => {
             const { body } = responseCreate;
-            resultCrush = JSON.parse(body);
+            resultTalker = JSON.parse(body);
           });
       });
 
@@ -431,7 +431,7 @@ describe('5 - Crie o endpoint PUT /crush/:id', () => {
               },
             },
           })
-          .put(`${url}/crush/${resultCrush.id}`, {
+          .put(`${url}/talker/${resultTalker.id}`, {
             name: 'Zendaya',
             age: 25,
           })
@@ -439,14 +439,14 @@ describe('5 - Crie o endpoint PUT /crush/:id', () => {
           .then((responseUpdate) => {
             const { json } = responseUpdate;
             expect(json.message).toBe(
-              'O campo "date" é obrigatório e "datedAt" e "rate" não podem ser vazios',
+              'O campo "talk" é obrigatório e "watchedAt" e "rate" não podem ser vazios'
             );
           });
       });
   });
 
-  it('Será validado que não é possível editar um crush sem a chave rate', async () => {
-    let resultCrush;
+  it('Será validado que não é possível editar um talker sem a chave rate', async () => {
+    let resultTalker;
 
     await frisby
       .post(`${url}/login`, {
@@ -466,18 +466,18 @@ describe('5 - Crie o endpoint PUT /crush/:id', () => {
               },
             },
           })
-          .post(`${url}/crush`, {
+          .post(`${url}/talker`, {
             name: 'Zendaya Maree',
             age: 24,
-            date: {
-              datedAt: '25/09/2020',
+            talk: {
+              watchedAt: '25/09/2020',
               rate: 5,
             },
           })
           .expect('status', 201)
           .then((responseCreate) => {
             const { body } = responseCreate;
-            resultCrush = JSON.parse(body);
+            resultTalker = JSON.parse(body);
           });
       });
 
@@ -500,25 +500,25 @@ describe('5 - Crie o endpoint PUT /crush/:id', () => {
               },
             },
           })
-          .put(`${url}/crush/${resultCrush.id}`, {
+          .put(`${url}/talker/${resultTalker.id}`, {
             name: 'Zendaya',
             age: 25,
-            date: {
-              datedAt: '24/10/2020',
+            talk: {
+              watchedAt: '24/10/2020',
             },
           })
           .expect('status', 400)
           .then((responseUpdate) => {
             const { json } = responseUpdate;
             expect(json.message).toBe(
-              'O campo "date" é obrigatório e "datedAt" e "rate" não podem ser vazios',
+              'O campo "talk" é obrigatório e "watchedAt" e "rate" não podem ser vazios'
             );
           });
       });
   });
 
-  it('Será validado que não é possível editar um crush com rate menor que 1', async () => {
-    let resultCrush;
+  it('Será validado que não é possível editar um talker com rate menor que 1', async () => {
+    let resultTalker;
 
     await frisby
       .post(`${url}/login`, {
@@ -538,18 +538,18 @@ describe('5 - Crie o endpoint PUT /crush/:id', () => {
               },
             },
           })
-          .post(`${url}/crush`, {
+          .post(`${url}/talker`, {
             name: 'Zendaya Maree',
             age: 24,
-            date: {
-              datedAt: '25/09/2020',
+            talk: {
+              watchedAt: '25/09/2020',
               rate: 5,
             },
           })
           .expect('status', 201)
           .then((responseCreate) => {
             const { body } = responseCreate;
-            resultCrush = JSON.parse(body);
+            resultTalker = JSON.parse(body);
           });
       });
 
@@ -572,11 +572,11 @@ describe('5 - Crie o endpoint PUT /crush/:id', () => {
               },
             },
           })
-          .put(`${url}/crush/${resultCrush.id}`, {
+          .put(`${url}/talker/${resultTalker.id}`, {
             name: 'Zendaya',
             age: 25,
-            date: {
-              datedAt: '24/10/2020',
+            talk: {
+              watchedAt: '24/10/2020',
               rate: 0,
             },
           })
@@ -584,14 +584,14 @@ describe('5 - Crie o endpoint PUT /crush/:id', () => {
           .then((responseUpdate) => {
             const { json } = responseUpdate;
             expect(json.message).toBe(
-              'O campo "rate" deve ser um inteiro de 1 à 5',
+              'O campo "rate" deve ser um inteiro de 1 à 5'
             );
           });
       });
   });
 
-  it('Será validado que não é possível editar um crush com rate maior que 5', async () => {
-    let resultCrush;
+  it('Será validado que não é possível editar um talker com rate maior que 5', async () => {
+    let resultTalker;
 
     await frisby
       .post(`${url}/login`, {
@@ -611,18 +611,18 @@ describe('5 - Crie o endpoint PUT /crush/:id', () => {
               },
             },
           })
-          .post(`${url}/crush`, {
+          .post(`${url}/talker`, {
             name: 'Zendaya Maree',
             age: 24,
-            date: {
-              datedAt: '25/09/2020',
+            talk: {
+              watchedAt: '25/09/2020',
               rate: 5,
             },
           })
           .expect('status', 201)
           .then((responseCreate) => {
             const { body } = responseCreate;
-            resultCrush = JSON.parse(body);
+            resultTalker = JSON.parse(body);
           });
       });
 
@@ -645,11 +645,11 @@ describe('5 - Crie o endpoint PUT /crush/:id', () => {
               },
             },
           })
-          .put(`${url}/crush/${resultCrush.id}`, {
+          .put(`${url}/talker/${resultTalker.id}`, {
             name: 'Zendaya',
             age: 25,
-            date: {
-              datedAt: '24/10/2020',
+            talk: {
+              watchedAt: '24/10/2020',
               rate: 7,
             },
           })
@@ -657,14 +657,14 @@ describe('5 - Crie o endpoint PUT /crush/:id', () => {
           .then((responseUpdate) => {
             const { json } = responseUpdate;
             expect(json.message).toBe(
-              'O campo "rate" deve ser um inteiro de 1 à 5',
+              'O campo "rate" deve ser um inteiro de 1 à 5'
             );
           });
       });
   });
 
-  it('Será validado que não é possível editar um crush sem a chave datedAt', async () => {
-    let resultCrush;
+  it('Será validado que não é possível editar um talker sem a chave watchedAt', async () => {
+    let resultTalker;
 
     await frisby
       .post(`${url}/login`, {
@@ -684,18 +684,18 @@ describe('5 - Crie o endpoint PUT /crush/:id', () => {
               },
             },
           })
-          .post(`${url}/crush`, {
+          .post(`${url}/talker`, {
             name: 'Zendaya Maree',
             age: 24,
-            date: {
-              datedAt: '25/09/2020',
+            talk: {
+              watchedAt: '25/09/2020',
               rate: 5,
             },
           })
           .expect('status', 201)
           .then((responseCreate) => {
             const { body } = responseCreate;
-            resultCrush = JSON.parse(body);
+            resultTalker = JSON.parse(body);
           });
       });
 
@@ -718,10 +718,10 @@ describe('5 - Crie o endpoint PUT /crush/:id', () => {
               },
             },
           })
-          .put(`${url}/crush/${resultCrush.id}`, {
+          .put(`${url}/talker/${resultTalker.id}`, {
             name: 'Zendaya',
             age: 25,
-            date: {
+            talk: {
               rate: 4,
             },
           })
@@ -729,14 +729,14 @@ describe('5 - Crie o endpoint PUT /crush/:id', () => {
           .then((responseUpdate) => {
             const { json } = responseUpdate;
             expect(json.message).toBe(
-              'O campo "date" é obrigatório e "datedAt" e "rate" não podem ser vazios',
+              'O campo "talk" é obrigatório e "watchedAt" e "rate" não podem ser vazios'
             );
           });
       });
   });
 
-  it('Será validado que não é possível editar um crush com datedAt sem o formato "dd/mm/aaaa"', async () => {
-    let resultCrush;
+  it('Será validado que não é possível editar um talker com watchedAt sem o formato "dd/mm/aaaa"', async () => {
+    let resultTalker;
 
     await frisby
       .post(`${url}/login`, {
@@ -756,18 +756,18 @@ describe('5 - Crie o endpoint PUT /crush/:id', () => {
               },
             },
           })
-          .post(`${url}/crush`, {
+          .post(`${url}/talker`, {
             name: 'Zendaya Maree',
             age: 24,
-            date: {
-              datedAt: '25/09/2020',
+            talk: {
+              watchedAt: '25/09/2020',
               rate: 5,
             },
           })
           .expect('status', 201)
           .then((responseCreate) => {
             const { body } = responseCreate;
-            resultCrush = JSON.parse(body);
+            resultTalker = JSON.parse(body);
           });
       });
 
@@ -790,11 +790,11 @@ describe('5 - Crie o endpoint PUT /crush/:id', () => {
               },
             },
           })
-          .put(`${url}/crush/${resultCrush.id}`, {
+          .put(`${url}/talker/${resultTalker.id}`, {
             name: 'Zendaya',
             age: 25,
-            date: {
-              datedAt: '42-20-3333',
+            talk: {
+              watchedAt: '42-20-3333',
               rate: 4,
             },
           })
@@ -802,14 +802,14 @@ describe('5 - Crie o endpoint PUT /crush/:id', () => {
           .then((responseUpdate) => {
             const { json } = responseUpdate;
             expect(json.message).toBe(
-              'O campo "datedAt" deve ter o formato "dd/mm/aaaa"',
+              'O campo "watchedAt" deve ter o formato "dd/mm/aaaa"'
             );
           });
       });
   });
 
-  it('Será validado que não é possível editar um crush sem estar autorizado', async () => {
-    let resultCrush;
+  it('Será validado que não é possível editar um talker sem estar autorizado', async () => {
+    let resultTalker;
 
     await frisby
       .post(`${url}/login`, {
@@ -829,18 +829,18 @@ describe('5 - Crie o endpoint PUT /crush/:id', () => {
               },
             },
           })
-          .post(`${url}/crush`, {
+          .post(`${url}/talker`, {
             name: 'Zendaya Maree',
             age: 24,
-            date: {
-              datedAt: '25/09/2020',
+            talk: {
+              watchedAt: '25/09/2020',
               rate: 5,
             },
           })
           .expect('status', 201)
           .then((responseCreate) => {
             const { body } = responseCreate;
-            resultCrush = JSON.parse(body);
+            resultTalker = JSON.parse(body);
           });
       });
 
@@ -853,11 +853,11 @@ describe('5 - Crie o endpoint PUT /crush/:id', () => {
       })
       .then(() =>
         frisby
-          .put(`${url}/crush/${resultCrush.id}`, {
+          .put(`${url}/talker/${resultTalker.id}`, {
             name: 'Zendaya',
             age: 25,
-            date: {
-              datedAt: '24/10/2020',
+            talk: {
+              watchedAt: '24/10/2020',
               rate: 4,
             },
           })
@@ -865,11 +865,12 @@ describe('5 - Crie o endpoint PUT /crush/:id', () => {
           .then((responseUpdate) => {
             const { json } = responseUpdate;
             expect(json.message).toBe('Token não encontrado');
-          }));
+          })
+      );
   });
 
-  it('Será validado que não é possível editar um crush com token inválido', async () => {
-    let resultCrush;
+  it('Será validado que não é possível editar um talker com token inválido', async () => {
+    let resultTalker;
 
     await frisby
       .post(`${url}/login`, {
@@ -889,18 +890,18 @@ describe('5 - Crie o endpoint PUT /crush/:id', () => {
               },
             },
           })
-          .post(`${url}/crush`, {
+          .post(`${url}/talker`, {
             name: 'Zendaya Maree',
             age: 24,
-            date: {
-              datedAt: '25/09/2020',
+            talk: {
+              watchedAt: '25/09/2020',
               rate: 5,
             },
           })
           .expect('status', 201)
           .then((responseCreate) => {
             const { body } = responseCreate;
-            resultCrush = JSON.parse(body);
+            resultTalker = JSON.parse(body);
           });
       });
 
@@ -921,11 +922,11 @@ describe('5 - Crie o endpoint PUT /crush/:id', () => {
               },
             },
           })
-          .put(`${url}/crush/${resultCrush.id}`, {
+          .put(`${url}/talker/${resultTalker.id}`, {
             name: 'Zendaya',
             age: 25,
-            date: {
-              datedAt: '24/10/2020',
+            talk: {
+              watchedAt: '24/10/2020',
               rate: 4,
             },
           })
@@ -933,6 +934,7 @@ describe('5 - Crie o endpoint PUT /crush/:id', () => {
           .then((responseUpdate) => {
             const { json } = responseUpdate;
             expect(json.message).toBe('Token inválido');
-          }));
+          })
+      );
   });
 });

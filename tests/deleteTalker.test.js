@@ -4,22 +4,22 @@ const path = require('path');
 
 const url = 'http://localhost:3000';
 
-describe('6 - Crie o endpoint DELETE /crush/:id', () => {
+describe('6 - Crie o endpoint DELETE /talker/:id', () => {
   beforeEach(() => {
-    const crushSeed = fs.readFileSync(
+    const talkerSeed = fs.readFileSync(
       path.join(__dirname, 'seed.json'),
-      'utf8',
+      'utf8'
     );
 
     fs.writeFileSync(
-      path.join(__dirname, '..', 'crush.json'),
-      crushSeed,
-      'utf8',
+      path.join(__dirname, '..', 'talker.json'),
+      talkerSeed,
+      'utf8'
     );
   });
 
-  it('Será validado que é possível deletar um crush com sucesso', async () => {
-    let resultCrush;
+  it('Será validado que é possível deletar um talker com sucesso', async () => {
+    let resultTalker;
 
     await frisby
       .post(`${url}/login`, {
@@ -39,18 +39,18 @@ describe('6 - Crie o endpoint DELETE /crush/:id', () => {
               },
             },
           })
-          .post(`${url}/crush`, {
+          .post(`${url}/talker`, {
             name: 'Zendaya Maree',
             age: 24,
-            date: {
-              datedAt: '25/09/2020',
+            talk: {
+              watchedAt: '25/09/2020',
               rate: 5,
             },
           })
           .expect('status', 201)
           .then((responseCreate) => {
             const { body } = responseCreate;
-            resultCrush = JSON.parse(body);
+            resultTalker = JSON.parse(body);
           });
       });
 
@@ -72,17 +72,17 @@ describe('6 - Crie o endpoint DELETE /crush/:id', () => {
               },
             },
           })
-          .delete(`${url}/crush/${resultCrush.id}`)
+          .delete(`${url}/talker/${resultTalker.id}`)
           .expect('status', 200)
           .then((responseDelete) => {
             const { json } = responseDelete;
-            expect(json.message).toBe('Crush deletado com sucesso');
+            expect(json.message).toBe('Talker deletado com sucesso');
           });
       });
   });
 
-  it('Será validado que não é possível deletar um crush sem estar autorizado', async () => {
-    let resultCrush;
+  it('Será validado que não é possível deletar um talker sem estar autorizado', async () => {
+    let resultTalker;
 
     await frisby
       .post(`${url}/login`, {
@@ -102,18 +102,18 @@ describe('6 - Crie o endpoint DELETE /crush/:id', () => {
               },
             },
           })
-          .post(`${url}/crush`, {
+          .post(`${url}/talker`, {
             name: 'Zendaya Maree',
             age: 24,
-            date: {
-              datedAt: '25/09/2020',
+            talk: {
+              watchedAt: '25/09/2020',
               rate: 5,
             },
           })
           .expect('status', 201)
           .then((responseCreate) => {
             const { body } = responseCreate;
-            resultCrush = JSON.parse(body);
+            resultTalker = JSON.parse(body);
           });
       });
 
@@ -127,11 +127,11 @@ describe('6 - Crie o endpoint DELETE /crush/:id', () => {
       .then(() =>
         frisby
           .setup()
-          .delete(`${url}/crush/${resultCrush.id}`, {
+          .delete(`${url}/talker/${resultTalker.id}`, {
             name: 'Zendaya',
             age: 25,
-            date: {
-              datedAt: '24/10/2020',
+            talk: {
+              watchedAt: '24/10/2020',
               rate: 4,
             },
           })
@@ -139,11 +139,12 @@ describe('6 - Crie o endpoint DELETE /crush/:id', () => {
           .then((responseDelete) => {
             const { json } = responseDelete;
             expect(json.message).toBe('Token não encontrado');
-          }));
+          })
+      );
   });
 
-  it('Será validado que não é possível deletar um crush com token inválido', async () => {
-    let resultCrush;
+  it('Será validado que não é possível deletar um talker com token inválido', async () => {
+    let resultTalker;
 
     await frisby
       .post(`${url}/login`, {
@@ -163,15 +164,15 @@ describe('6 - Crie o endpoint DELETE /crush/:id', () => {
               },
             },
           })
-          .post(`${url}/crush`, {
+          .post(`${url}/talker`, {
             name: 'Rihanna',
             age: 32,
-            date: { datedAt: '23/10/2020', rate: 5 },
+            talk: { watchedAt: '23/10/2020', rate: 5 },
           })
           .expect('status', 201)
           .then((responseCreate) => {
             const { body } = responseCreate;
-            resultCrush = JSON.parse(body);
+            resultTalker = JSON.parse(body);
           });
       });
 
@@ -184,7 +185,7 @@ describe('6 - Crie o endpoint DELETE /crush/:id', () => {
           },
         },
       })
-      .delete(`${url}/crush/${resultCrush.id}`)
+      .delete(`${url}/talker/${resultTalker.id}`)
       .expect('status', 401)
       .then((responseDelete) => {
         const { json } = responseDelete;
