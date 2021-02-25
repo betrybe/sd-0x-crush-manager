@@ -212,25 +212,25 @@ Você pode também instalar o plugin do `ESLint` no `VSCode`, bastar ir em exten
 ```json
 [
   {
-    "name": "Madonna",
+    "name": "Henrique Albuquerque",
     "age": 62,
     "id": 1,
     "talk": { "watchedAt": "23/10/2020", "rate": 5 }
   },
   {
-    "name": "Cyndi Lauper",
+    "name": "Heloísa Albuquerque",
     "age": 67,
     "id": 2,
     "talk": { "watchedAt": "23/10/2020", "rate": 5 }
   },
   {
-    "name": "Kendrick Lamar",
+    "name": "Ricardo Xavier Filho",
     "age": 33,
     "id": 3,
     "talk": { "watchedAt": "23/10/2020", "rate": 5 }
   },
   {
-    "name": "Tom Holland",
+    "name": "Marcos Costa",
     "age": 24,
     "id": 4,
     "talk": { "watchedAt": "23/10/2020", "rate": 5 }
@@ -247,7 +247,7 @@ Você pode também instalar o plugin do `ESLint` no `VSCode`, bastar ir em exten
 
   ```json
   {
-    "name": "Madonna",
+    "name": "Henrique Albuquerque",
     "age": 62,
     "id": 1,
     "talk": { "watchedAt": "23/10/2020", "rate": 5 }
@@ -258,7 +258,7 @@ Você pode também instalar o plugin do `ESLint` no `VSCode`, bastar ir em exten
 
   ```json
   {
-    "message": "Palestrante não encontrado"
+    "message": "Pessoa palestrante não encontrada"
   }
   ```
 
@@ -325,13 +325,13 @@ Você pode também instalar o plugin do `ESLint` no `VSCode`, bastar ir em exten
 
 #### Os seguintes pontos serão avaliados:
 
-- O endpoint deve ser capaz de adicionar um nova pessoa palestrante ao seu arquivo;
+- O endpoint deve ser capaz de adicionar uma nova pessoa palestrante ao seu arquivo;
 
 - O corpo da requisição deverá ter o seguinte formato:
 
   ```json
   {
-    "name": "Keanu Reeves",
+    "name": "Danielle Santos",
     "age": 56,
     "talk": {
       "watchedAt": "22/10/2019",
@@ -426,12 +426,12 @@ Você pode também instalar o plugin do `ESLint` no `VSCode`, bastar ir em exten
       }
       ```
 
-- O endpoint deve retornar o `status 201` e a pessoa palestrante que foi cadastrada, dá seguinte forma:
+- O endpoint deve retornar o `status 201` e a pessoa palestrante que foi cadastrada, da seguinte forma:
 
   ```json
   {
     "id": 1,
-    "name": "Keanu Reeves",
+    "name": "Danielle Santos",
     "age": 56,
     "talk": {
       "watchedAt": "22/10/2019",
@@ -584,7 +584,7 @@ Você pode também instalar o plugin do `ESLint` no `VSCode`, bastar ir em exten
 - O endpoint deve deletar uma pessoa palestrante com base no id da rota. Devendo retornar o `status 200`, com o seguinte corpo:
 
   ```json
-  { "message": "Palestrante deletado com sucesso" }
+  { "message": "Pessoa palestrante deletada com sucesso" }
   ```
 
 
