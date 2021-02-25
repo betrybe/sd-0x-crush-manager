@@ -25,7 +25,7 @@ describe('4 - Crie o endpoint POST /talker', () => {
     );
   });
 
-  it('Será validado que é possível cadastrar um talker com sucesso', async () => {
+  it('Será validado que é possível cadastrar uma pessoa palestrante com sucesso', async () => {
     await frisby
       .post(`${url}/login`, {
         body: {
@@ -58,7 +58,7 @@ describe('4 - Crie o endpoint POST /talker', () => {
       });
   });
 
-  it('Será validado que não é possível cadastrar um talker sem nome', async () => {
+  it('Será validado que não é possível cadastrar uma pessoa palestrante sem nome', async () => {
     await frisby
       .post(`${url}/login`, {
         body: {
@@ -90,7 +90,7 @@ describe('4 - Crie o endpoint POST /talker', () => {
       });
   });
 
-  it('Será validado que não é possível cadastrar um talker com nome menor que 3 caracteres', async () => {
+  it('Será validado que não é possível cadastrar uma pessoa palestrante com nome menor que 3 caracteres', async () => {
     await frisby
       .post(`${url}/login`, {
         body: {
@@ -125,7 +125,7 @@ describe('4 - Crie o endpoint POST /talker', () => {
       });
   });
 
-  it('Será validado que não é possível cadastrar um talker sem idade', async () => {
+  it('Será validado que não é possível cadastrar uma pessoa palestrante sem idade', async () => {
     await frisby
       .post(`${url}/login`, {
         body: {
@@ -157,7 +157,7 @@ describe('4 - Crie o endpoint POST /talker', () => {
       });
   });
 
-  it('Será validado que não é possível cadastrar um talker com idade menor de 18 anos', async () => {
+  it('Será validado que não é possível cadastrar uma pessoa palestrante com idade menor de 18 anos', async () => {
     await frisby
       .post(`${url}/login`, {
         body: {
@@ -185,12 +185,14 @@ describe('4 - Crie o endpoint POST /talker', () => {
           .expect('status', 400)
           .then((responseCreate) => {
             const { json } = responseCreate;
-            expect(json.message).toBe('O talker deve ser maior de idade');
+            expect(json.message).toBe(
+              'A pessoa palestrante deve ser maior de idade'
+            );
           });
       });
   });
 
-  it('Será validado que não é possível cadastrar um talker sem o campo talk', async () => {
+  it('Será validado que não é possível cadastrar uma pessoa palestrante sem o campo talk', async () => {
     await frisby
       .post(`${url}/login`, {
         body: {
@@ -224,7 +226,7 @@ describe('4 - Crie o endpoint POST /talker', () => {
       });
   });
 
-  it('Será validado que não é possível cadastrar um talker sem a chave rate', async () => {
+  it('Será validado que não é possível cadastrar uma pessoa palestrante sem a chave rate', async () => {
     await frisby
       .post(`${url}/login`, {
         body: {
@@ -259,7 +261,7 @@ describe('4 - Crie o endpoint POST /talker', () => {
       });
   });
 
-  it('Será validado que não é possível cadastrar um talker com rate menor que 1', async () => {
+  it('Será validado que não é possível cadastrar uma pessoa palestrante com rate menor que 1', async () => {
     await frisby
       .post(`${url}/login`, {
         body: {
@@ -294,7 +296,7 @@ describe('4 - Crie o endpoint POST /talker', () => {
       });
   });
 
-  it('Será validado que não é possível cadastrar um talker com rate maior que 5', async () => {
+  it('Será validado que não é possível cadastrar uma pessoa palestrante com rate maior que 5', async () => {
     await frisby
       .post(`${url}/login`, {
         body: {
@@ -329,7 +331,7 @@ describe('4 - Crie o endpoint POST /talker', () => {
       });
   });
 
-  it('Será validado que não é possível cadastrar um talker sem a chave watchedAt', async () => {
+  it('Será validado que não é possível cadastrar uma pessoa palestrante sem a chave watchedAt', async () => {
     await frisby
       .post(`${url}/login`, {
         body: {
@@ -364,7 +366,7 @@ describe('4 - Crie o endpoint POST /talker', () => {
       });
   });
 
-  it('Será validado que não é possível cadastrar um talker com watchedAt sem o formato "dd/mm/aaaa"', async () => {
+  it('Será validado que não é possível cadastrar uma pessoa palestrante com watchedAt sem o formato "dd/mm/aaaa"', async () => {
     await frisby
       .post(`${url}/login`, {
         body: {
@@ -399,7 +401,7 @@ describe('4 - Crie o endpoint POST /talker', () => {
       });
   });
 
-  it('Será validado que não é possível cadastrar um talker sem estar autorizado', async () => {
+  it('Será validado que não é possível cadastrar uma pessoa palestrante sem estar autorizado', async () => {
     await frisby
       .post(`${url}/login`, {
         body: {
@@ -422,7 +424,7 @@ describe('4 - Crie o endpoint POST /talker', () => {
       );
   });
 
-  it('Será validado que não é possível cadastrar um talker com token inválido', async () => {
+  it('Será validado que não é possível cadastrar uma pessoa palestrante com token inválido', async () => {
     await frisby
       .post(`${url}/login`, {
         body: {

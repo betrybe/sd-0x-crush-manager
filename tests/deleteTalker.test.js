@@ -18,7 +18,7 @@ describe('6 - Crie o endpoint DELETE /talker/:id', () => {
     );
   });
 
-  it('Será validado que é possível deletar um talker com sucesso', async () => {
+  it('Será validado que é possível deletar uma pessoa palestrante com sucesso', async () => {
     let resultTalker;
 
     await frisby
@@ -76,12 +76,14 @@ describe('6 - Crie o endpoint DELETE /talker/:id', () => {
           .expect('status', 200)
           .then((responseDelete) => {
             const { json } = responseDelete;
-            expect(json.message).toBe('Talker deletado com sucesso');
+            expect(json.message).toBe(
+              'Pessoa palestrante deletada com sucesso'
+            );
           });
       });
   });
 
-  it('Será validado que não é possível deletar um talker sem estar autorizado', async () => {
+  it('Será validado que não é possível deletar uma pessoa palestrante sem estar autorizado', async () => {
     let resultTalker;
 
     await frisby
@@ -143,7 +145,7 @@ describe('6 - Crie o endpoint DELETE /talker/:id', () => {
       );
   });
 
-  it('Será validado que não é possível deletar um talker com token inválido', async () => {
+  it('Será validado que não é possível deletar uma pessoa palestrante com token inválido', async () => {
     let resultTalker;
 
     await frisby

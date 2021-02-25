@@ -29,7 +29,7 @@ describe('1 - Crie o endpoint GET /talker', () => {
       });
   });
 
-  it('Será validado que o endpoint retorna um array vazio caso não haja palestrantes cadastrados', async () => {
+  it('Será validado que o endpoint retorna um array vazio caso não haja pessoas palestrantes cadastradas', async () => {
     fs.writeFileSync(path.join(__dirname, '..', 'talker.json'), '[]', 'utf8');
 
     await frisby

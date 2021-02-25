@@ -18,7 +18,7 @@ describe('5 - Crie o endpoint PUT /talker/:id', () => {
     );
   });
 
-  it('Será validado que é possível editar um talker com sucesso', async () => {
+  it('Será validado que é possível editar uma pessoa palestrante com sucesso', async () => {
     let resultTalker;
 
     await frisby
@@ -92,7 +92,7 @@ describe('5 - Crie o endpoint PUT /talker/:id', () => {
       });
   });
 
-  it('Será validado que não é possível editar um talker sem nome', async () => {
+  it('Será validado que não é possível editar uma pessoa palestrante sem nome', async () => {
     let resultTalker;
 
     await frisby
@@ -162,7 +162,7 @@ describe('5 - Crie o endpoint PUT /talker/:id', () => {
       });
   });
 
-  it('Será validado que não é possível editar um talker com nome menor que 3 caracteres', async () => {
+  it('Será validado que não é possível editar uma pessoa palestrante com nome menor que 3 caracteres', async () => {
     let resultTalker;
 
     await frisby
@@ -235,7 +235,7 @@ describe('5 - Crie o endpoint PUT /talker/:id', () => {
       });
   });
 
-  it('Será validado que não é possível editar um talker sem idade', async () => {
+  it('Será validado que não é possível editar uma pessoa palestrante sem idade', async () => {
     let resultTalker;
 
     await frisby
@@ -305,7 +305,7 @@ describe('5 - Crie o endpoint PUT /talker/:id', () => {
       });
   });
 
-  it('Será validado que não é possível editar um talker com idade menor de 18 anos', async () => {
+  it('Será validado que não é possível editar uma pessoa palestrante com idade menor de 18 anos', async () => {
     let resultTalker;
 
     await frisby
@@ -376,7 +376,7 @@ describe('5 - Crie o endpoint PUT /talker/:id', () => {
       });
   });
 
-  it('Será validado que não é possível editar um talker sem o campo talk', async () => {
+  it('Será validado que não é possível editar uma pessoa palestrante sem o campo talk', async () => {
     let resultTalker;
 
     await frisby
@@ -445,7 +445,7 @@ describe('5 - Crie o endpoint PUT /talker/:id', () => {
       });
   });
 
-  it('Será validado que não é possível editar um talker sem a chave rate', async () => {
+  it('Será validado que não é possível editar uma pessoa palestrante sem a chave rate', async () => {
     let resultTalker;
 
     await frisby
@@ -517,7 +517,7 @@ describe('5 - Crie o endpoint PUT /talker/:id', () => {
       });
   });
 
-  it('Será validado que não é possível editar um talker com rate menor que 1', async () => {
+  it('Será validado que não é possível editar uma pessoa palestrante com rate menor que 1', async () => {
     let resultTalker;
 
     await frisby
@@ -590,7 +590,7 @@ describe('5 - Crie o endpoint PUT /talker/:id', () => {
       });
   });
 
-  it('Será validado que não é possível editar um talker com rate maior que 5', async () => {
+  it('Será validado que não é possível editar uma pessoa palestrante com rate maior que 5', async () => {
     let resultTalker;
 
     await frisby
@@ -663,7 +663,7 @@ describe('5 - Crie o endpoint PUT /talker/:id', () => {
       });
   });
 
-  it('Será validado que não é possível editar um talker sem a chave watchedAt', async () => {
+  it('Será validado que não é possível editar uma pessoa palestrante sem a chave watchedAt', async () => {
     let resultTalker;
 
     await frisby
@@ -735,7 +735,7 @@ describe('5 - Crie o endpoint PUT /talker/:id', () => {
       });
   });
 
-  it('Será validado que não é possível editar um talker com watchedAt sem o formato "dd/mm/aaaa"', async () => {
+  it('Será validado que não é possível editar uma pessoa palestrante com watchedAt sem o formato "dd/mm/aaaa"', async () => {
     let resultTalker;
 
     await frisby
@@ -808,7 +808,7 @@ describe('5 - Crie o endpoint PUT /talker/:id', () => {
       });
   });
 
-  it('Será validado que não é possível editar um talker sem estar autorizado', async () => {
+  it('Será validado que não é possível editar uma pessoa palestrante sem estar autorizado', async () => {
     let resultTalker;
 
     await frisby
@@ -869,7 +869,7 @@ describe('5 - Crie o endpoint PUT /talker/:id', () => {
       );
   });
 
-  it('Será validado que não é possível editar um talker com token inválido', async () => {
+  it('Será validado que não é possível editar uma pessoa palestrante com token inválido', async () => {
     let resultTalker;
 
     await frisby
