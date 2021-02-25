@@ -199,7 +199,7 @@ Isso está configurado para o avaliador funcionar.
 
 4. Ao realizar testes locais com `npm run test`, o servidor deverá ser iniciado com `npm run debug` para evitar possíveis erros.
 
-5. Caso os testes falhem seu arquivo `crush.json` não será restaurado, para isso utilize `npm run restore`.
+5. Após o teste local seu arquivo `crush.json` ficará vazio. Para que ele retorne à configuração inicial utilize `npm run restore`.
 
 6. Ao se deparar com o erro de que a porta já está em uso: `EADDRINUSE: address already in use 0.0.0.0:3000`, execute em seu terminal `killall node` isso finaliza todas as execuções do node.
 
