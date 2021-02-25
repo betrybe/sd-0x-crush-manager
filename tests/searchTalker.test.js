@@ -74,9 +74,9 @@ describe('7 - Crie o endpoint GET /talker/search?q=searchTerm', () => {
             expect(json).toEqual(
               expect.arrayContaining([
                 expect.objectContaining({
-                  name: 'Madonna',
-                  age: 62,
-                  id: 1,
+                  name: 'Marcos Costa',
+                  age: 24,
+                  id: 4,
                   talk: { watchedAt: '23/10/2020', rate: 5 },
                 }),
                 expect.objectContaining({

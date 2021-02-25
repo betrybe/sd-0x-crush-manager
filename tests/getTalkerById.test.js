@@ -25,7 +25,7 @@ describe('2 - Crie o endpoint GET /talker/:id', () => {
       .then((responseGet) => {
         const { json } = responseGet;
         expect(json).toEqual({
-          name: 'Madonna',
+          name: 'Henrique Albuquerque',
           age: 62,
           id: 1,
           talk: { watchedAt: '23/10/2020', rate: 5 },
@@ -39,7 +39,7 @@ describe('2 - Crie o endpoint GET /talker/:id', () => {
       .expect('status', 404)
       .then((responseGet) => {
         const { json } = responseGet;
-        expect(json.message).toBe('Talker não encontrado');
+        expect(json.message).toBe('Pessoa palestrante não encontrada');
       });
   });
 });

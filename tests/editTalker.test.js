@@ -371,7 +371,7 @@ describe('5 - Crie o endpoint PUT /talker/:id', () => {
           .expect('status', 400)
           .then((responseUpdate) => {
             const { json } = responseUpdate;
-            expect(json.message).toBe('O talker deve ser maior de idade');
+            expect(json.message).toBe('A pessoa palestrante deve ser maior de idade');
           });
       });
   });
